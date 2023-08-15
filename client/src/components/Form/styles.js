@@ -1,16 +1,25 @@
 import { makeStyles } from '@mui/styles';
 import { createTheme } from '@mui/material/styles';
 
-const theme = createTheme();
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#2196f3',
+    },
+    secondary: {
+      main: '#f44336',
+    },
+  },
+});
 
 const useStyles = makeStyles((theme) => ({
   root: {
     '& .MuiTextField-root': {
-      margin: theme.spacing(1),
+      margin: '8px',
     },
   },
   paper: {
-    padding: theme.spacing(2),
+    padding: '16px',
   },
   form: {
     display: 'flex',
@@ -22,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
     margin: '10px 0',
   },
   buttonSubmit: {
-    marginBottom: 10,
+    marginBottom: '10px !important',
   },
 }));
 
