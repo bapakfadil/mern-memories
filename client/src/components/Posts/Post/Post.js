@@ -6,7 +6,7 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import moment from 'moment';
 import { useDispatch } from 'react-redux';
 
-import { deletePost } from '../../../actions/posts.js';
+import { deletePost, likePost } from '../../../actions/posts.js';
 import {useStyles, theme} from './styles.js';
 
 const Post = ({ post, setCurrentId }) => {
@@ -35,15 +35,15 @@ const Post = ({ post, setCurrentId }) => {
                 </div>
                 <Typography className={classes.title} variant="h5" gutterBottom>{post.title}</Typography>
                 <CardContent>
-                    <Typography variant="h5" gutterBottom>{post.message}</Typography>
+                    <Typography variant="body2" color="textSecondary" component="p">{post.message}</Typography>
                 </CardContent>
                 <CardActions className={classes.cardActions}>
                     {/* 
                         in React 18, <button> tag will create a pure html button. but <Button> tag,
                         will create a React button.
                     */}
-                    <Button size="small" startIcon={<ThumbUpAltIcon />} onClick={() => {}}>
-                        Like
+                    <Button size="small" startIcon={<ThumbUpAltIcon />} onClick={() => dispatch(likePost(post._id))}>
+                        &nbsp; Like &nbsp;
                         {post.likeCount}
                     </Button>
                     <Button size="small" startIcon={<DeleteIcon />} onClick={() => dispatch(deletePost(post._id))}>
