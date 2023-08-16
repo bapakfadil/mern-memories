@@ -4,11 +4,14 @@ import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import DeleteIcon from '@mui/icons-material/Delete';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import moment from 'moment';
+import { useDispatch } from 'react-redux';
 
+import { deletePost } from '../../../actions/posts.js';
 import {useStyles, theme} from './styles.js';
 
 const Post = ({ post, setCurrentId }) => {
     const classes = useStyles();
+    const dispatch = useDispatch();
     
     return (
         <ThemeProvider theme={theme}>
@@ -43,7 +46,7 @@ const Post = ({ post, setCurrentId }) => {
                         Like
                         {post.likeCount}
                     </Button>
-                    <Button size="small" startIcon={<DeleteIcon />} onClick={() => {}}>
+                    <Button size="small" startIcon={<DeleteIcon />} onClick={() => dispatch(deletePost(post._id))}>
                         Delete
                     </Button>
                 </CardActions>
