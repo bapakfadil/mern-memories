@@ -1,7 +1,16 @@
 import { makeStyles } from '@mui/styles';
 import { createTheme } from '@mui/material/styles';
 
-const theme = createTheme();
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#2196f3',
+    },
+    secondary: {
+      main: '#f44336',
+    },
+  },
+});
 
 const useStyles =  makeStyles((theme) => ({
     media: {
